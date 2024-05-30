@@ -47,8 +47,8 @@
 .card {
   flex: 1;
   margin-right: 16px;
+  margin-bottom: 2rem; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
 }
 
 .card-1 {
@@ -60,4 +60,8 @@
 }
 .card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.servicos {
+  height: 70px;
+ 
 }

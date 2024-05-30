@@ -10,15 +10,36 @@ const App: React.FC = () => {
       <div className="card-container">
         <div className="card">       
           <Card className="card-1">
+          
+          </Card>
+        </div>
+        <div className="card">
+          <Card className="card-2">    
+          </Card>
+        </div>
+      </div>
+      <div className="card">
+          <Card className="servicos">
+         
+          </Card>
+        </div>
+        <div className="card">
+          <Card className="servicos">
+          
+          </Card>
+        </div>
+        <div className="card">
+          <Card className="servicos">
            
           </Card>
         </div>
         <div className="card">
-          <Card className="card-2">
+          <Card className="servicos">
+           
           </Card>
         </div>
-      </div>
     </div>
+    
   );
 }
 
