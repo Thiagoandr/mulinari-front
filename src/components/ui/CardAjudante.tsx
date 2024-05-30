@@ -1,10 +1,16 @@
 import { DollarSign, Truck } from "lucide-react";
 import { Card, CardContent, CardTitle } from "./card";
+import { useNavigate, useParams } from "react-router-dom";
 
 const CardAjudante = () => {
 
+
+
+
+    const navigate = useNavigate();
+
     return (
-        <Card className="flex justify-between items-center p-8 hover:shadow-lg hover:cursor-pointer">
+        <Card onClick = {() => navigate(`/ajudante`)} className="flex justify-between items-center p-8 hover:shadow-lg hover:cursor-pointer">
           <CardTitle className="ml-4">Negueba</CardTitle>
 
           <CardContent className="flex gap-10 items-center p-0 mr-4">
