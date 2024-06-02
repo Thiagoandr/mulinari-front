@@ -6,7 +6,6 @@ const CardAjudante = () => {
 
 
 
-
     const navigate = useNavigate();
 
     return (
