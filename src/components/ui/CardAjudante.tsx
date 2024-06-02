@@ -13,6 +13,7 @@ const CardAjudante = () => {
           <CardTitle className="ml-4">Negueba</CardTitle>
 
           <CardContent className="flex gap-10 items-center p-0 mr-4">
+          
             <div className="flex gap-2 items-center">
               <Truck size={30} className="text-zinc-500/90"></Truck>
               <span className="text-xl font-semibold">2</span>
