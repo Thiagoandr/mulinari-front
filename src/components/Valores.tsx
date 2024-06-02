@@ -1,11 +1,11 @@
-import { Card, CardContent, CardTitle } from './card'
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import { DollarSign, Truck, User } from 'lucide-react'
 
 const Valores = () => {
   return (
-    <section className="card-container">
-        <div className="card">
-          <Card className="card-1 flex flex-col justify-between p-6">
+    <section className="flex gap-4">
+        <div className="w-full">
+          <Card className="card-1 flex h-44 flex-col justify-between p-6">
             <CardTitle className="text-left text-3xl">
               Faturamento Total
             </CardTitle>
@@ -21,8 +21,8 @@ const Valores = () => {
             </CardContent>
           </Card>
         </div>
-        <div className="card">
-          <Card className="card-1 flex flex-col justify-between p-6">
+        <div className="w-full">
+          <Card className="flex h-44 flex-col justify-between p-6">
             <CardTitle className="text-left text-3xl">
               Total das Diárias
             </CardTitle>
