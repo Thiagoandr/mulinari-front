@@ -7,7 +7,7 @@ const CardAjudante = () => {
     const navigate = useNavigate();
 
     return (
-        <Card onClick = {() => navigate(`/ajudante`)} className="flex hover:scale-[1.01] transition-all justify-between items-center p-8 shadow-sm hover:shadow-lg hover:cursor-pointer">
+        <Card onClick = {() => navigate(`/ajudante/id`)} className="flex hover:scale-[1.01] transition-all justify-between items-center p-8 shadow-sm hover:shadow-lg hover:cursor-pointer">
           <CardTitle className="ml-4">Negueba</CardTitle>
           <CardContent className="flex gap-10 items-center p-0 mr-4">
             <div className="flex gap-2 items-center">
