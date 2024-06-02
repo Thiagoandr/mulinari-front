@@ -1,23 +1,31 @@
-import React from 'react';
-import { User } from 'lucide-react';
-import { CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { DollarSign, Truck } from "lucide-react";
 
-const Ajudante = () => {
-  return (
-    <div className="flex items-center">
-      <img
-        src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-        alt="Ajudante"
-        className="h-48 w-48 mr-5" 
-      />
-      <div className="ml-4">
-        <CardTitle className="text-5xl">Negueba</CardTitle>
-        <br></br>
-        <span className=" ml-4 text-xl">teste teste teste</span>
-      </div>
-    </div>
-  );
-};
+import { useNavigate, useParams } from "react-router-dom";
 
-export default Ajudante;
+const CardAjudante = () => {
 
+
+
+
+    const navigate = useNavigate();
+
+    return (
+        <Card onClick = {() => navigate(`/ajudante`)} className="flex justify-between items-center p-8 hover:shadow-lg hover:cursor-pointer">
+          <CardTitle className="ml-4">Negueba</CardTitle>
+
+          <CardContent className="flex gap-10 items-center p-0 mr-4">
+            <div className="flex gap-2 items-center">
+              <Truck size={30} className="text-zinc-500/90"></Truck>
+              <span className="text-xl font-semibold">2</span>
+            </div>
+            <div className="flex gap-2 items-center">
+              <DollarSign size={25} className="text-red-500" />
+              <span className="text-xl font-semibold">180,00</span>
+            </div>
+          </CardContent>
+        </Card>
+    )
+}
+
+export default CardAjudante;

@@ -1,4 +1,4 @@
-import CardAjudante from "@/components/CardAjudante";
+import CardAjudante from "@/components/ui/CardAjudante";
 import Valores from "@/components/Valores";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
