@@ -1,29 +1,38 @@
 import CardServiço from "@/components/CardServiço";
+import { Button } from "@/components/ui/button";
 import { CardTitle } from "@/components/ui/card";
+import { PencilIcon, TrashIcon } from "lucide-react";
 
 const Ajudante = () => {
   return (
-    <div>
-  <div className="flex items-center">
-    <img
-      src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-      alt="Ajudante"
-      className="h-48 w-48 mr-5" 
-    />
-    <div className="ml-4">
-      <CardTitle className="text-5xl">Negueba</CardTitle>
-      <br />
-      <span className="ml-0 text-x text-zinc-500">Edgar Bivara</span>
-      <br />
-      
-    </div>
-  </div>
-  <CardServiço/>
-  
-  <CardServiço/>
-  <CardServiço/>
-  <CardServiço/>
-</div>
+    <main className="w-3/4 mx-auto">
+      <section className=" ml-4 flex items-center ">
+        <img
+          src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
+          alt="Ajudante"
+          className="h-48 w-48 mr-5"
+        />
+        <div className="ml-4 ">
+          <CardTitle className="text-5xl mb-2">Negueba</CardTitle>
+
+          <span className="ml-0 text-x text-zinc-500">Edgar Bivara</span>
+        </div>
+        <div className="flex ml-auto gap-2 mr-8">
+          <Button className=" bg-blue-600 w-[50px] hover:bg-blue-700">
+            <PencilIcon />
+          </Button>
+          <Button variant={"destructive"} className="w-[50px]">
+            <TrashIcon />
+          </Button>
+        </div>
+      </section>
+      <section className="mt-14 space-y-4 w-full">
+        <CardServiço />
+        <CardServiço />
+        <CardServiço />
+        <CardServiço />
+      </section>
+    </main>
   );
 };
 
