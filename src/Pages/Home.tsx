@@ -16,6 +16,7 @@ const Home = () => {
       </section>
       <section className=" *:mb-4">
         <CardAjudante />
+        
         <CardAjudante />
         <CardAjudante />
         <CardAjudante />
