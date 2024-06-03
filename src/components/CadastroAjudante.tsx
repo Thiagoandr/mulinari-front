@@ -5,7 +5,6 @@ import { z } from "zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -13,7 +12,6 @@ import {
 } from "./ui/form";
 import { Button } from "./ui/button";
 import { Calendar } from "./ui/calendar";
-import { useState } from "react";
 import { ptBR } from "date-fns/locale";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { format } from "date-fns";
@@ -35,7 +33,6 @@ const formSchema = z.object({
 
 const CadastroAjudante = () => {
   //adicionar checkbox de motorista
-  const [date, setDate] = useState<Date | undefined>(new Date());
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -43,7 +40,7 @@ const CadastroAjudante = () => {
       nome: "",
       apelido: "",
       motorista: false,
-      dataNascimento: date,
+      dataNascimento: undefined,
       telefone: "",
     },
   });
@@ -103,7 +100,7 @@ const CadastroAjudante = () => {
           name="dataNascimento"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Date of birth</FormLabel>
+              <FormLabel>Data de nascimento</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -127,8 +124,14 @@ const CadastroAjudante = () => {
                   <Calendar
                     mode="single"
                     locale={ptBR}
+                    captionLayout="dropdown-buttons"
                     selected={field.value}
-                    onSelect={field.onChange} 
+                    onSelect={field.onChange}
+                    fromYear={1960}
+                    toYear={2030}
+                    disabled={(date) =>
+                      date > new Date() || date < new Date("1900-01-01")
+                    } 
                     initialFocus
                   />
                 </PopoverContent>
