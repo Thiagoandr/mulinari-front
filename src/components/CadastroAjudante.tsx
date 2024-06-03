@@ -2,8 +2,22 @@ import { useForm } from "react-hook-form";
 import { Input } from "./ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./ui/form";
 import { Button } from "./ui/button";
+import { Calendar } from "./ui/calendar";
+import { useState } from "react";
+import { ptBR } from "date-fns/locale";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
 
 const formSchema = z.object({
   nome: z.string().min(1, {
@@ -13,9 +27,7 @@ const formSchema = z.object({
     message: "Apelido muito grande",
   }),
   motorista: z.boolean(),
-  dataNascimento: z.string().min(1, {
-    message: "Preencha a data de nascimento",
-  }),
+  dataNascimento: z.date(),
   telefone: z.string().min(1, {
     message: "Telefone não pode estar vazio",
   }),
@@ -23,6 +35,7 @@ const formSchema = z.object({
 
 const CadastroAjudante = () => {
   //adicionar checkbox de motorista
+  const [date, setDate] = useState<Date | undefined>(new Date());
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -30,19 +43,22 @@ const CadastroAjudante = () => {
       nome: "",
       apelido: "",
       motorista: false,
-      dataNascimento: "",
+      dataNascimento: date,
       telefone: "",
     },
   });
 
   const cadastrarAjudante = (ajudante: z.infer<typeof formSchema>) => {
-    console.log(ajudante);
-  }
+    console.log(ajudante.dataNascimento.toLocaleDateString("pt-BR"));
+  };
 
   return (
     <main className="w-2/4 mx-auto">
-      <Form {...form}>  
-        <form onSubmit={form.handleSubmit(cadastrarAjudante)} className="space-y-4">
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(cadastrarAjudante)}
+          className="space-y-4"
+        >
           <FormField
             control={form.control}
             name="nome"
@@ -71,19 +87,6 @@ const CadastroAjudante = () => {
           />
           <FormField
             control={form.control}
-            name="dataNascimento"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Data de nascimento</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
             name="telefone"
             render={({ field }) => (
               <FormItem>
@@ -95,6 +98,45 @@ const CadastroAjudante = () => {
               </FormItem>
             )}
           />
+          <FormField
+          control={form.control}
+          name="dataNascimento"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel>Date of birth</FormLabel>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant={"outline"}
+                      className={
+                        `w-[240px] pl-3 text-left font-normal
+                        ${!field.value && "text-muted-foreground"}`
+                      }
+                    >
+                      {field.value ? (
+                        format(field.value, "dd/MM/yyyy")
+                      ) : ( 
+                        <span>Escolha uma data</span>
+                      )}
+                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    locale={ptBR}
+                    selected={field.value}
+                    onSelect={field.onChange} 
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
           <Button type="submit">Cadastrar</Button>
         </form>
       </Form>

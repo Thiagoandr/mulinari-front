@@ -6,15 +6,14 @@ import { PencilIcon, TrashIcon } from "lucide-react";
 const Ajudante = () => {
   return (
     <main className="w-3/4 mx-auto pb-6">
-      <section className=" ml-4 flex items-center ">
+      <section className="ml-4 flex items-center">
         <img
           src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
           alt="Ajudante"
-          className="h-48 w-48 mr-5"
+          className="h-44 w-44 mr-5"
         />
         <div className="ml-4 ">
-          <CardTitle className="text-5xl mb-2">Negueba</CardTitle>
-
+          <CardTitle className="text-4xl mb-2">Negueba</CardTitle>
           <span className="ml-0 text-x text-zinc-500">Edgar Bivara</span>
         </div>
         <div className="flex ml-auto gap-2 mr-8">
