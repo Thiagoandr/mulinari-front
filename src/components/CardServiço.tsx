@@ -1,17 +1,15 @@
-import React from "react";
 import { Card, CardContent, CardTitle } from "./ui/card";
-import { DollarSign, Truck, User } from "lucide-react";
-import { Button } from "./ui/button";
+import { DollarSign, User } from "lucide-react";
 
 const CardServiço = () => {
   return (
     <Card className="ml-1 flex justify-between items-center p-8 hover:shadow-lg hover:scale-[1.01] transition-transform cursor-pointer ">
       <div>
         <div className="ml-4">
-          <CardTitle>Rua dos bobos, Pau-Grande</CardTitle>
+          <CardTitle>Rua das Laranjeiras</CardTitle>
           <div className="items-center gap-1 flex mt-2">
             <span className="text-x text-gray-500 font-italic">
-              Abelardo Barboza
+              Laranjeiras
             </span>
             <p className="text sm ml-0 text-gray-400 italic">- 02/10/2023</p>
           </div>

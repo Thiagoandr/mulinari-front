@@ -5,7 +5,7 @@ import { PencilIcon, TrashIcon } from "lucide-react";
 
 const Ajudante = () => {
   return (
-    <main className="w-3/4 mx-auto">
+    <main className="w-3/4 mx-auto pb-6">
       <section className=" ml-4 flex items-center ">
         <img
           src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
@@ -18,7 +18,7 @@ const Ajudante = () => {
           <span className="ml-0 text-x text-zinc-500">Edgar Bivara</span>
         </div>
         <div className="flex ml-auto gap-2 mr-8">
-          <Button className=" bg-blue-600 w-[50px] hover:bg-blue-700">
+          <Button className="w-[50px]">
             <PencilIcon />
           </Button>
           <Button variant={"destructive"} className="w-[50px]">
