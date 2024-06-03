@@ -16,7 +16,7 @@ const CardAjudante = () => {
             </div>
             <div className="flex gap-2 items-center">
               <DollarSign size={25} className="text-red-500" />
-              <span className="text-xl font-semibold">180,00</span>
+              <span className="text-xl font-semibold">300,00</span>
             </div>
           </CardContent>
         </Card>
